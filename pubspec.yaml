@@ -1,0 +1,72 @@
+name: my_e_book
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  dartz: ^0.10.1
+  dio: ^4.0.6
+  epub_view: ^3.0.0
+  equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.1
+  get_it: ^7.2.0
+  internet_file: ^1.2.0
+  syncfusion_flutter_pdfviewer: ^20.3.50
+  webview_flutter: ^3.0.4
+
+dev_dependencies:
+  flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
+  fonts:
+    - family: Nasalization
+      fonts:
+        - asset: assets/fonts/nasalizationRg.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+    - family: AvenirNext
+      fonts:
+        - asset: assets/fonts/avenirNextFont.ttf
+    - family: BtSans
+      fonts:
+        - asset: assets/fonts/ptSansCaption.ttf
+    - family: Meta
+      fonts:
+        - asset: assets/fonts/metaNormal.ttf
+    - family: Gotham
+      fonts:
+        - asset: assets/fonts/gothamLight.ttf
+          weight: 300
+        - asset: assets/fonts/gothamBook.ttf
+        - asset: assets/fonts/gothamMedium.ttf
+          weight: 500
+        - asset: assets/fonts/gothamBold.otf
+          weight: 700
+    - family: BrandonGrotesque
+      fonts:
+        - asset: assets/fonts/brandonGrotesqueThin.ttf
+          weight: 200
+        - asset: assets/fonts/brandonGrotesqueLight.ttf
+          weight: 300
+        - asset: assets/fonts/brandonGrotesqueRegular.ttf
+        - asset: assets/fonts/brandonGrotesqueMedium.ttf
+          weight: 500
+        - asset: assets/fonts/brandonGrotesqueBold.ttf
+          weight: 700
+        - asset: assets/fonts/brandonGrotesqueBlack.ttf
+          weight: 900
