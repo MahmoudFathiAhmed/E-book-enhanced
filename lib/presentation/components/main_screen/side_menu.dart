@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_e_book/core/routes/app_routes.dart';
 import 'package:my_e_book/core/utils/app_strings.dart';
 import 'package:my_e_book/core/utils/styles_manager.dart';
 import 'package:my_e_book/core/utils/values_manager.dart';
+import 'package:my_e_book/presentation/controller/Theme/theme_cubit.dart';
 
 class SideMenu extends StatelessWidget {
   final String headerImage;
@@ -54,8 +56,11 @@ class SideMenu extends StatelessWidget {
               DrawerListTile(
                 title: AppStrings.changeTheme,
                 icon: Icons.light_mode_outlined,
-                press: () {},
-              ),
+                press: () {
+                  // BlocProvider.of<ThemeCubit>(context).changeTheme();
+                  context.read<ThemeCubit>().changeTheme();
+                },
+              )
             ],
           ),
         ),

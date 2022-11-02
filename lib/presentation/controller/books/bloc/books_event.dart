@@ -28,7 +28,8 @@ class GetAllBooksEvent extends BooksEvent {
   });
 
   @override
-  List<Object> get props => [page!,mimeType!,copyright!, ids!, search!, sort!, topic!];
+  List<Object> get props =>
+      [page!, mimeType!, copyright!, ids!, search!, sort!, topic!];
 }
 
 class GetABookEvent extends BooksEvent {
@@ -38,5 +39,18 @@ class GetABookEvent extends BooksEvent {
   @override
   List<Object> get props => [
         id,
+      ];
+}
+
+class ChnageThemeEvent extends BooksEvent {
+  final bool isDark;
+  const ChnageThemeEvent({
+    required this.isDark,
+  });
+  
+
+  @override
+  List<Object> get props => [
+        isDark,
       ];
 }

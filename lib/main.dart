@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_e_book/core/routes/app_routes.dart';
 import 'package:my_e_book/core/services/service_locator.dart';
-import 'package:my_e_book/core/theme/dark_theme_data.dart';
-import 'package:my_e_book/core/theme/light_theme_data.dart';
 import 'package:my_e_book/core/utils/app_strings.dart';
 import 'package:my_e_book/core/utils/values_manager.dart';
+import 'package:my_e_book/presentation/controller/Theme/theme_cubit.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,15 +23,22 @@ class MyApp extends StatelessWidget {
       designSize: const Size(AppSize.s360, AppSize.s690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: AppStrings.appName,
-        darkTheme: getDarkThemeData(),
-        theme: getLightThemeData(),
-        themeMode: ThemeMode.light,
-        // themeMode: ThemeMode.light,
-        // home: const MainScreen(),
-        onGenerateRoute: AppRoutes.onGenerateRoute,
+      builder: (context, child) => BlocProvider(
+        create: (context) => ThemeCubit(),
+        child: BlocBuilder<ThemeCubit, ThemeData>(
+          builder: (context, state) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: AppStrings.appName,
+              // darkTheme: getDarkThemeData(),
+              theme: state,
+              // themeMode: ThemeMode.dark,
+              // themeMode: ThemeMode.light,
+              // home: const MainScreen(),
+              onGenerateRoute: AppRoutes.onGenerateRoute,
+            );
+          },
+        ),
       ),
     );
   }

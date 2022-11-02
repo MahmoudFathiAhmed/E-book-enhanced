@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_e_book/core/routes/app_routes.dart';
 import 'package:my_e_book/core/utils/app_strings.dart';
 import 'package:my_e_book/core/utils/values_manager.dart';
+import 'package:my_e_book/presentation/components/general/default_button.dart';
 
 class CategoriesElements extends StatelessWidget {
   const CategoriesElements({super.key});
@@ -15,19 +16,15 @@ class CategoriesElements extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: AppStrings.categoriesList.length,
-        itemBuilder: (context, index) => MaterialButton(
-          minWidth: AppStrings.categoriesList[index].length.toDouble().w,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(AppSize.s18.r)),
-          onPressed: () {
-            Navigator.of(context).pushNamed(Routes.categoryRoute,
-                arguments:
-                    CategoryScreenArgs(AppStrings.categoriesList[index]));
-          },
-          color: Theme.of(context).primaryColor,
-          child: Text(AppStrings.categoriesList[index].toUpperCase(),
-              style: Theme.of(context).textTheme.titleMedium),
-        ),
+        itemBuilder: (context, index) => DefaultButton(
+            text: AppStrings.categoriesList[index].toUpperCase(),
+            minWidth: AppStrings.categoriesList[index].length.toDouble(),
+            onclick: () {
+              Navigator.of(context).pushNamed(Routes.categoryRoute,
+                  arguments:
+                      CategoryScreenArgs(AppStrings.categoriesList[index]));
+            },
+            borderRadius: AppSize.s18),
         separatorBuilder: (context, index) => SizedBox(
           width: AppSize.s10.w,
         ),
