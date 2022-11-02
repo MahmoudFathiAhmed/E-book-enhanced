@@ -5,6 +5,7 @@ import 'package:my_e_book/presentation/screens/category_screen.dart';
 import 'package:my_e_book/presentation/screens/epub_screen.dart';
 import 'package:my_e_book/presentation/screens/main_screen.dart';
 import 'package:my_e_book/presentation/screens/pdf_screen.dart';
+import 'package:my_e_book/presentation/screens/search_screen.dart';
 import 'package:my_e_book/presentation/screens/web_view_screen.dart';
 
 class Routes {
@@ -15,6 +16,7 @@ class Routes {
   static const String webViewRoute = AppStrings.webViewRoute;
   static const String epubRoute = AppStrings.epubRoute;
   static const String pdfRoute = AppStrings.pdfRoute;
+  static const String searchRoute = AppStrings.searchRoute;
 }
 
 class AppRoutes {
@@ -22,6 +24,8 @@ class AppRoutes {
     switch (routeSettings.name) {
       case Routes.initialRoute:
         return MaterialPageRoute(builder: (context) => const MainScreen());
+      case Routes.searchRoute:
+        return MaterialPageRoute(builder: (context) => const SearchScreen());
       case Routes.bookDetailsRoute:
         BookDetailsArgs bookDetailsArgs =
             routeSettings.arguments as BookDetailsArgs;

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_e_book/core/routes/app_routes.dart';
 import 'package:my_e_book/core/services/service_locator.dart';
+import 'package:my_e_book/core/utils/app_assets.dart';
 import 'package:my_e_book/core/utils/app_strings.dart';
 import 'package:my_e_book/core/utils/values_manager.dart';
 import 'package:my_e_book/presentation/components/category/book_card_widget.dart';
 import 'package:my_e_book/presentation/components/general/default_header.dart';
 import 'package:my_e_book/presentation/components/main_screen/books_cover_widget.dart';
 import 'package:my_e_book/presentation/components/main_screen/categories_elements.dart';
+import 'package:my_e_book/presentation/components/main_screen/side_menu.dart';
 import 'package:my_e_book/presentation/controller/books/bloc/books_bloc.dart';
 
 class MainScreen extends StatelessWidget {
@@ -16,11 +19,16 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('E-Book'),
+      ),
+      drawer:
+          const SideMenu(headerImage: AppImages.eBookLogo, radius: AppSize.s15),
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Padding(
-            padding: const EdgeInsets.all(AppPadding.p8),
+            padding: EdgeInsets.all(AppPadding.p8.r),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -30,7 +38,7 @@ class MainScreen extends StatelessWidget {
                   child: BlocBuilder<BooksBloc, BooksState>(
                     builder: (context, state) {
                       return SizedBox(
-                        height: 178,
+                        height: AppSize.s178.h,
                         child: ListView.separated(
                             physics: const BouncingScrollPhysics(),
                             scrollDirection: Axis.horizontal,
@@ -48,9 +56,8 @@ class MainScreen extends StatelessWidget {
                                 },
                               );
                             }),
-                            separatorBuilder: ((context, index) =>
-                                const SizedBox(
-                                  width: AppSize.s10,
+                            separatorBuilder: ((context, index) => SizedBox(
+                                  width: AppSize.s15.w,
                                 )),
                             itemCount: state.books.books.length),
                       );
@@ -70,9 +77,9 @@ class MainScreen extends StatelessWidget {
                         primary: false,
                         itemCount: state.books.books.length,
                         separatorBuilder: (context, index) =>
-                            const SizedBox(height: AppSize.s5),
+                            SizedBox(height: AppSize.s4.h),
                         itemBuilder: (context, index) => SizedBox(
-                          height: AppSize.s190,
+                          height: AppSize.s165.h,
                           child: BookCardWidget(
                             imageUrl: state.books.books[index].formats.image,
                             onTap: () {

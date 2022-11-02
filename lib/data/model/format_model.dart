@@ -3,11 +3,14 @@ import 'package:my_e_book/domain/entity/format.dart';
 
 class FormatModel extends Formats {
   const FormatModel(
-      {required super.textHtml, required super.image, required super.epub, required super.pdf});
+      {required super.textHtml,
+      required super.image,
+      required super.epub,
+      required super.pdf});
 
   factory FormatModel.fromJson(Map<String, dynamic> json) => FormatModel(
       textHtml: json[ApiConstants.textHtmlApi],
-      image: json[ApiConstants.imageApi]??ApiConstants.noImageApiApi,
+      image: json[ApiConstants.imageApi] ?? ApiConstants.noImageApiApi,
       epub: json[ApiConstants.epubApi],
       pdf: json[ApiConstants.pdfApi]
       // textHtml: json['text/html']??'https://www.gutenberg.org/files/37106/37106-h/37106-h.htm',

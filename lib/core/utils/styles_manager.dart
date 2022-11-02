@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_e_book/core/utils/font_manager.dart';
 import 'package:my_e_book/core/utils/values_manager.dart';
 
@@ -9,7 +10,7 @@ TextStyle _getTextStyle(
   double letterSpacing = AppSize.s0,
 }) {
   return TextStyle(
-      fontSize: fontSize,
+      fontSize: fontSize.sp,
       fontFamily: AppFonts.defaultFontFamily,
       fontWeight: fontWeight,
       color: color,
@@ -24,7 +25,7 @@ _getAppBarStyle(
   double letterSpacing = AppSize.s0,
 }) {
   return TextStyle(
-      fontSize: fontSize,
+      fontSize: fontSize.sp,
       fontFamily: AppFonts.nasalization,
       fontWeight: fontWeight,
       color: color,

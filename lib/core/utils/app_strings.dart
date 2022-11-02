@@ -12,22 +12,12 @@ class AppStrings {
   static const String webViewRoute = '/webViewScreen';
   static const String epubRoute = '/epubScreen';
   static const String pdfRoute = '/pdfScreen';
+  static const String searchRoute = '/searchScreen';
 
   //errors
   static const String error = 'error';
   static const String code = 'code';
   static const String message = 'message';
-
-  //state
-  static const String titleState = 'The Enchanted April';
-  static const String authorNameState = 'Von Arnim, Elizabeth';
-  static const String subjectState = 'British -- Italy -- Fiction';
-  static const String bookShelfState = 'Bestsellers, American, 1895-1923';
-  static const String languagesState = 'ar';
-  static const String textHtmlState = 'https://www.gutenberg.org/files/16389/16389-h/16389-h.htm';
-  static const String imageState = 'https://www.gutenberg.org/cache/epub/16389/pg16389.cover.medium.jpg';
-  static const String epubState = 'https://www.gutenberg.org/ebooks/16389.epub3.images';
-  static const String pdfState = 'https://www.gutenberg.org/files/33283/33283-pdf.pdf';
 
   //app
   static const String appName = 'My E-Book';
@@ -48,52 +38,71 @@ class AppStrings {
   static const String recentlyAdded = 'RECENTLY ADDED';
   static const String decending = 'descending';
   static const String acending = 'ascending ';
+  static const String favourites = 'Favourites ';
+  static const String search = 'Search ';
+  static const String contactUs = 'Contact Us ';
+  static const String changeTheme = 'Change Theme';
+
+  static const String loadingStateRenderer = 'Loading';
+    static const retryAgainStateRenderer = "retry_again";
+  static const okStateRenderer = "ok";
+
+  // error handler
+  static const String badRequestError = "bad_request_error";
+  static const String noContent = "no_content";
+  static const String forbiddenError = "forbidden_error";
+  static const String unauthorizedError = "unauthorized_error";
+  static const String notFoundError = "not_found_error";
+  static const String conflictError = "conflict_error";
+  static const String internalServerError = "internal_server_error";
+  static const String unknownError = "unknown_error";
+  static const String timeoutError = "timeout_error";
+  static const String defaultError = "default_error";
+  static const String cacheError = "cache_error";
+  static const String noInternetError = "no_internet_error";
+  static const String success = "success";
 
   static const List<String> categoriesList = [
-      'plays',
-      'children',
-      'animal',
-      'crime',
-      'classics',
-      'education',
-      'fiction',
-      'geography',
-      'history',
-      'law',
-      'music',
-      'psychology',
-      'philosophy',
-      'religion',
-      'science',
-      'Technology',
-      'Wars',
-      'adventure',
-      'Anarchism',
-      'Anthropology',
-      'Archaeology',
-      'Architecture',
-      'art',
-      'Astronomy',
-      'Atheism',
-      'Biology',
-      'birds',
-      'Ecology',
-      'Fantasy',
-      'Folklore',
-      'Geology',
-      'Horror',
-      'humor',
-      'Horticulture',
-      'Love',
-      'Manufacturing',
-      'Mathematics',
-      'Microbiology',
-      'music',
-      'Racism',
-      'Reference',
-    ];
-
-
-
-
+    'plays',
+    'children',
+    'animal',
+    'crime',
+    'classics',
+    'education',
+    'fiction',
+    'geography',
+    'history',
+    'law',
+    'music',
+    'psychology',
+    'philosophy',
+    'religion',
+    'science',
+    'Technology',
+    'Wars',
+    'adventure',
+    'Anarchism',
+    'Anthropology',
+    'Archaeology',
+    'Architecture',
+    'art',
+    'Astronomy',
+    'Atheism',
+    'Biology',
+    'birds',
+    'Ecology',
+    'Fantasy',
+    'Folklore',
+    'Geology',
+    'Horror',
+    'humor',
+    'Horticulture',
+    'Love',
+    'Manufacturing',
+    'Mathematics',
+    'Microbiology',
+    'music',
+    'Racism',
+    'Reference',
+  ];
 }

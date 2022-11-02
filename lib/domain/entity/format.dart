@@ -14,5 +14,10 @@ class Formats extends Equatable {
   });
 
   @override
-  List<Object> get props => [textHtml!, image, epub!, pdf!];
+  List<Object> get props => [
+        textHtml!,
+        image,
+        epub!,
+        pdf!,
+      ];
 }

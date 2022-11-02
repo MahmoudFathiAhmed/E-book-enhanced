@@ -14,18 +14,52 @@ class BooksState extends Equatable {
       books: [
         Book(
           id: AppCount.c100,
-          title: AppStrings.titleState,
+          title: StateStrings.titleState,
           copyright: true,
-          authors: [Author(name: AppStrings.authorNameState, birthYear: AppCount.c1900, deathYear: AppCount.c1990)],
-          subjects: [AppStrings.subjectState],
-          bookshelves: [AppStrings.bookShelfState],
-          languages: [AppStrings.languagesState],
+          authors: [Author(name: StateStrings.authorNameState, birthYear: AppCount.c1900, deathYear: AppCount.c1990)],
+          subjects: [StateStrings.subjectState],
+          bookshelves: [StateStrings.bookShelfState],
+          languages: [StateStrings.languagesState],
           formats: Formats(
-            textHtml: AppStrings.textHtmlState,
+            textHtml: StateStrings.textHtmlState,
             image:
-                AppStrings.imageState,
-            epub: AppStrings.epubState,
-            pdf: AppStrings.pdfState,
+                StateStrings.imageState,
+            epub: StateStrings.epubState,
+            pdf: StateStrings.pdfState,
+          ),
+          downloadCount: AppCount.c300,
+        ),
+        Book(
+          id: AppCount.c100,
+          title: StateStrings.titleState1,
+          copyright: true,
+          authors: [Author(name: StateStrings.authorNameState1, birthYear: AppCount.c1900, deathYear: AppCount.c1990)],
+          subjects: [StateStrings.subjectState1],
+          bookshelves: [StateStrings.bookShelfState1],
+          languages: [StateStrings.languagesState1],
+          formats: Formats(
+            textHtml: StateStrings.textHtmlState1,
+            image:
+                StateStrings.imageState1,
+            epub: StateStrings.epubState1,
+            pdf: StateStrings.pdfState1,
+          ),
+          downloadCount: AppCount.c300,
+        ),
+        Book(
+          id: AppCount.c100,
+          title: StateStrings.titleState2,
+          copyright: true,
+          authors: [Author(name: StateStrings.authorNameState2, birthYear: AppCount.c1900, deathYear: AppCount.c1990)],
+          subjects: [StateStrings.subjectState2],
+          bookshelves: [StateStrings.bookShelfState2],
+          languages: [StateStrings.languagesState2],
+          formats: Formats(
+            textHtml: StateStrings.textHtmlState2,
+            image:
+                StateStrings.imageState2,
+            epub: StateStrings.epubState2,
+            pdf: StateStrings.pdfState2,
           ),
           downloadCount: AppCount.c300,
         ),
@@ -35,18 +69,18 @@ class BooksState extends Equatable {
     this.booksMessage = AppStrings.emptyString,
     this.book = const Book(
       id: AppCount.c100,
-      title: AppStrings.titleState,
+      title: StateStrings.titleState2,
       copyright: true,
-      authors: [Author(name: AppStrings.authorNameState, birthYear: AppCount.c1900, deathYear: AppCount.c1990)],
-      subjects: [AppStrings.subjectState],
-      bookshelves: [AppStrings.bookShelfState],
-      languages: [AppStrings.languagesState],
+      authors: [Author(name: StateStrings.authorNameState2, birthYear: AppCount.c1900, deathYear: AppCount.c1990)],
+      subjects: [StateStrings.subjectState2],
+      bookshelves: [StateStrings.bookShelfState2],
+      languages: [StateStrings.languagesState2],
       formats: Formats(
-        textHtml: AppStrings.textHtmlState,
+        textHtml: StateStrings.textHtmlState2,
         image:
-            AppStrings.imageState,
-        epub: AppStrings.epubState,
-        pdf: AppStrings.pdfState,
+            StateStrings.imageState2,
+        epub: StateStrings.epubState2,
+        pdf: StateStrings.pdfState2,
       ),
       downloadCount: AppCount.c300,
     ),
@@ -81,4 +115,53 @@ class BooksState extends Equatable {
         bookState,
         bookMessage,
       ];
+}
+class StateStrings{
+  //state
+  static const String titleState = 'The Enchanted April';
+  static const String authorNameState = 'Von Arnim, Elizabeth';
+  static const String subjectState = 'British -- Italy -- Fiction';
+  static const String bookShelfState = 'Bestsellers, American, 1895-1923';
+  static const String languagesState = 'ar';
+  static const String textHtmlState =
+      'https://www.gutenberg.org/files/16389/16389-h/16389-h.htm';
+  static const String imageState =
+      'https://www.gutenberg.org/cache/epub/16389/pg16389.cover.medium.jpg';
+  static const String epubState =
+      'https://www.gutenberg.org/ebooks/16389.epub3.images';
+  static const String pdfState =
+      'https://www.gutenberg.org/files/33283/33283-pdf.pdf';
+
+  
+  static const String titleState1 = 'Betty Wales on the campus';
+  static const String authorNameState1 = 'Dunton, Edith K. (Edith Kellogg)';
+  static const String subjectState1 = 'fiction';
+  static const String bookShelfState1 = 'fiction';
+  static const String languagesState1 = 'en';
+  static const String textHtmlState1 =
+      'https://www.gutenberg.org/files/69132/69132-h/69132-h.htm';
+  static const String imageState1 =
+      'https://www.gutenberg.org/cache/epub/69132/pg69132.cover.medium.jpg';
+  static const String epubState1 =
+      'https://www.gutenberg.org/ebooks/69132.epub3.images';
+  static const String pdfState1 =
+      'https://www.gutenberg.org/files/33283/33283-pdf.pdf';
+
+      
+  static const String titleState2 = 'The little acrobat: a story of Italy';
+  static const String authorNameState2 = 'Duggan, Janie Prichard';
+  static const String subjectState2 = 'Boys -- Juvenile fiction';
+  static const String bookShelfState2 = 'Italy -- Juvenile fiction';
+  static const String languagesState2 = 'en';
+  static const String textHtmlState2 =
+      'https://www.gutenberg.org/files/69064/69064-h/69064-h.htm';
+  static const String imageState2 =
+      'https://www.gutenberg.org/cache/epub/69064/pg69064.cover.medium.jpg';
+  static const String epubState2 =
+      'https://www.gutenberg.org/ebooks/69064.epub.images';
+  static const String pdfState2 =
+      'https://www.gutenberg.org/files/33283/33283-pdf.pdf';
+
+  
+
 }

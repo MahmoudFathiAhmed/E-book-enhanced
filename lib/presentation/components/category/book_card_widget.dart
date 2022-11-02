@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_e_book/core/utils/app_strings.dart';
 import 'package:my_e_book/core/utils/values_manager.dart';
 import 'package:my_e_book/presentation/components/main_screen/books_cover_widget.dart';
@@ -20,17 +21,17 @@ class BookCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(AppPadding.p10),
+      padding: EdgeInsets.all(AppPadding.p8.r),
       child: Row(
         children: [
           BooksCoverWidget(
             imageUrl: imageUrl,
             onTap: onTap,
-            height: AppSize.s130,
-            width: AppSize.s90,
+            height: AppSize.s140.h,
+            width: AppSize.s95.w,
           ),
-          const SizedBox(
-            width: AppSize.s10,
+          SizedBox(
+            width: AppSize.s10.w,
           ),
           Expanded(
             child: Column(
@@ -43,14 +44,14 @@ class BookCardWidget extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.displayMedium,
                 ),
-                const SizedBox(height: AppSize.s15),
+                SizedBox(height: AppSize.s4.h),
                 Text(
                   author,
                   maxLines: AppCount.c2,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.displaySmall,
                 ),
-                const SizedBox(height: AppSize.s15),
+                SizedBox(height: AppSize.s4.h),
                 RichText(
                   text: TextSpan(children: [
                     TextSpan(

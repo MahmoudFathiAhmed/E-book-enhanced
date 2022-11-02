@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_e_book/core/utils/app_strings.dart';
 import 'package:my_e_book/core/utils/values_manager.dart';
 
@@ -17,30 +18,31 @@ class AuthorCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: const EdgeInsets.all(AppMargin.m10),
-        width: MediaQuery.of(context).size.width * AppSize.s0_8,
+        margin: EdgeInsets.all(AppMargin.m10.r),
+        width: AppSize.s0_9.sw,
+        // width: MediaQuery.of(context).size.width * AppSize.s0_8,
         decoration: BoxDecoration(
           border: Border.all(
             color: Theme.of(context).primaryColor,
-            width: AppSize.s2,
+            width: AppSize.s2.w,
           ),
-          borderRadius: BorderRadius.circular(AppSize.s8),
+          borderRadius: BorderRadius.circular(AppSize.s8.r),
         ),
         child: Row(
           children: [
             ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(AppSize.s6),
-                bottomLeft: Radius.circular(AppSize.s6),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(AppSize.s6.r),
+                bottomLeft: Radius.circular(AppSize.s6.r),
               ),
               child: Container(
-                width: AppSize.s20,
-                height: AppSize.s80,
+                width: AppSize.s20.w,
+                height: AppSize.s90.h,
                 color: Theme.of(context).primaryColor,
               ),
             ),
-            const SizedBox(
-              width: AppSize.s10,
+            SizedBox(
+              width: AppSize.s10.w,
             ),
             Flexible(
               child: Column(

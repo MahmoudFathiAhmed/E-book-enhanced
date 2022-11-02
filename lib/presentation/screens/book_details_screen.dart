@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_e_book/core/routes/app_routes.dart';
 import 'package:my_e_book/core/services/service_locator.dart';
 import 'package:my_e_book/core/utils/app_strings.dart';
@@ -28,7 +29,7 @@ class BookDetailsScreen extends StatelessWidget {
             ),
             body: SafeArea(
               child: Padding(
-                padding: const EdgeInsets.all(AppPadding.p8),
+                padding: EdgeInsets.all(AppPadding.p8.r),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   physics: const BouncingScrollPhysics(),
@@ -42,14 +43,14 @@ class BookDetailsScreen extends StatelessWidget {
                           BookCoverDetails(url: state.book.formats.image),
                           Flexible(
                             child: Padding(
-                              padding: const EdgeInsets.all(AppPadding.p8),
+                              padding: EdgeInsets.all(AppPadding.p8.r),
                               child: Column(
                                 // mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   BookTitleDetails(title: state.book.title),
-                                  const SizedBox(height: AppSize.s5),
+                                  SizedBox(height: AppSize.s6.h),
                                   RichText(
                                     text: TextSpan(children: [
                                       TextSpan(
@@ -65,7 +66,7 @@ class BookDetailsScreen extends StatelessWidget {
                                               .headlineMedium),
                                     ]),
                                   ),
-                                  const SizedBox(height: AppSize.s5),
+                                  SizedBox(height: AppSize.s6.h),
                                   Row(
                                     children: [
                                       RichText(
@@ -83,30 +84,30 @@ class BookDetailsScreen extends StatelessWidget {
                                           ),
                                         ]),
                                       ),
-                                      const SizedBox(
-                                        width: AppSize.s5,
+                                      SizedBox(
+                                        width: AppSize.s7.w,
                                       ),
                                       DefaultOutlinedButton(
                                         text: AppStrings.buy,
-                                        height: AppSize.s25,
+                                        height: AppSize.s26,
                                         textColor:
                                             Theme.of(context).primaryColor,
                                         onclick: () {},
-                                        borderRadius: AppSize.s12_5,
+                                        borderRadius: AppSize.s13,
                                         borderColor:
                                             Theme.of(context).primaryColor,
                                       ),
                                     ],
                                   ),
                                   SizedBox(
-                                    height: AppSize.s38,
+                                    height: AppSize.s38.h,
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
                                         state.book.formats.textHtml != null
                                             ? SizedBox(
-                                                height: AppSize.s30,
+                                                height: AppSize.s30.h,
                                                 child: TextButton(
                                                   style: TextButton.styleFrom(
                                                       padding: EdgeInsets.zero),
@@ -132,12 +133,12 @@ class BookDetailsScreen extends StatelessWidget {
                                               )
                                             : const SizedBox(),
                                         state.book.formats.textHtml != null
-                                            ? const SizedBox(width: AppSize.s5)
+                                            ? SizedBox(width: AppSize.s5.w)
                                             : const SizedBox(),
                                         const SizedBox(),
                                         state.book.formats.epub != null
                                             ? SizedBox(
-                                                height: AppSize.s30,
+                                                height: AppSize.s30.h,
                                                 child: TextButton(
                                                   style: TextButton.styleFrom(
                                                     padding: EdgeInsets.zero,
@@ -164,11 +165,11 @@ class BookDetailsScreen extends StatelessWidget {
                                               )
                                             : const SizedBox(),
                                         state.book.formats.epub != null
-                                            ? const SizedBox(width: AppSize.s5)
+                                            ? SizedBox(width: AppSize.s5.w)
                                             : const SizedBox(),
                                         state.book.formats.pdf != null
                                             ? SizedBox(
-                                                height: AppSize.s30,
+                                                height: AppSize.s30.h,
                                                 child: TextButton(
                                                   style: TextButton.styleFrom(
                                                     padding: EdgeInsets.zero,
@@ -203,7 +204,7 @@ class BookDetailsScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(height: AppSize.s20),
+                      SizedBox(height: AppSize.s20.h),
                       state.book.authors.length == AppCount.c1
                           ? DefaultHeader(
                               header: AppStrings.author.toUpperCase())
@@ -212,8 +213,8 @@ class BookDetailsScreen extends StatelessWidget {
                       state.book.authors.isEmpty
                           ? const Text(AppStrings.noInfo)
                           : SizedBox(
-                              height: AppCount.c100 *
-                                  state.book.authors.length.toDouble(),
+                              height: AppCount.c110 *
+                                  state.book.authors.length.toDouble().h,
                               child: ListView.separated(
                                 physics: const NeverScrollableScrollPhysics(),
                                 itemBuilder: (context, index) =>
@@ -225,23 +226,23 @@ class BookDetailsScreen extends StatelessWidget {
                                       state.book.authors[index].deathYear!,
                                 ),
                                 separatorBuilder: (context, index) =>
-                                    const SizedBox(height: AppSize.s1),
+                                    SizedBox(height: AppSize.s1.h),
                                 itemCount: state.book.authors.length,
                               ),
                             ),
-                      const SizedBox(height: AppSize.s10),
+                      SizedBox(height: AppSize.s10.h),
                       DefaultHeader(
                           header: AppStrings.categories.toUpperCase()),
-                      const SizedBox(height: AppSize.s10),
+                      SizedBox(height: AppSize.s10.h),
                       state.book.bookshelves.isNotEmpty
                           ? SizedBox(
                               height: AppCount.c41 *
-                                  state.book.bookshelves.length.toDouble(),
+                                  state.book.bookshelves.length.toDouble().h,
                               child: ListView.separated(
                                 itemBuilder: (context, index) =>
                                     DefaultOutlinedButton(
                                   text: state.book.bookshelves[index],
-                                  textColor: Colors.teal,
+                                  textColor: Theme.of(context).primaryColor,
                                   onclick: () {},
                                   borderRadius: AppSize.s15,
                                   borderColor: Theme.of(context).primaryColor,
@@ -249,9 +250,8 @@ class BookDetailsScreen extends StatelessWidget {
                                   // width: 100,
                                   fontSize: FontSize.s16,
                                 ),
-                                separatorBuilder: (context, index) =>
-                                    const SizedBox(
-                                  height: AppSize.s10,
+                                separatorBuilder: (context, index) => SizedBox(
+                                  height: AppSize.s10.h,
                                 ),
                                 itemCount: state.book.bookshelves.length,
                               ),
@@ -259,12 +259,12 @@ class BookDetailsScreen extends StatelessWidget {
                           : state.book.subjects.isNotEmpty
                               ? SizedBox(
                                   height: AppCount.c41 *
-                                      state.book.subjects.length.toDouble(),
+                                      state.book.subjects.length.toDouble().h,
                                   child: ListView.separated(
                                     itemBuilder: (context, index) =>
                                         DefaultOutlinedButton(
                                       text: state.book.subjects[index],
-                                      textColor: Colors.teal,
+                                      textColor: Theme.of(context).primaryColor,
                                       onclick: () {},
                                       borderRadius: AppSize.s15,
                                       borderColor:
@@ -274,8 +274,8 @@ class BookDetailsScreen extends StatelessWidget {
                                       fontSize: FontSize.s16,
                                     ),
                                     separatorBuilder: (context, index) =>
-                                        const SizedBox(
-                                      height: AppSize.s10,
+                                        SizedBox(
+                                      height: AppSize.s10.h,
                                     ),
                                     itemCount: state.book.subjects.length,
                                   ),

@@ -36,8 +36,10 @@ class BooksBloc extends Bloc<BooksEvent, BooksState> {
         topic: event.topic));
 
     result.fold(
-      (l) => emit(state.copyWith(
-          booksState: RequestState.error, booksMessage: l.message)),
+      (l) => emit(
+        state.copyWith(
+          booksState: RequestState.error, booksMessage: l.message)
+          ),
       (r) => emit(state.copyWith(books: r, booksState: RequestState.loaded)),
     );
   }

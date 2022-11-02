@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:dio/dio.dart';
 import 'package:my_e_book/core/error/exceptions.dart';
 import 'package:my_e_book/core/network/api_constants.dart';
@@ -14,12 +15,14 @@ abstract class BaseBooksRemoteDataSource {
 }
 
 class BooksRemoteDataSource extends BaseBooksRemoteDataSource {
+  BooksRemoteDataSource();
   @override
   Future<BooksModel> getAllBooks(AllBooksParameters parameters) async {
     final response = await Dio().get(ApiConstants.allBooks(), queryParameters: {
       ApiConstants.pageApi: parameters.page,
-      ApiConstants.mimeTypeApi:parameters.mimeType,
-      ApiConstants.copyRightApi: parameters.copyright ??ApiConstants.trueAndFalseApi,
+      ApiConstants.mimeTypeApi: parameters.mimeType,
+      ApiConstants.copyRightApi:
+          parameters.copyright ?? ApiConstants.trueAndFalseApi,
       ApiConstants.idsApi: parameters.ids,
       ApiConstants.searchApi: parameters.search,
       ApiConstants.sortApi: parameters.sort,

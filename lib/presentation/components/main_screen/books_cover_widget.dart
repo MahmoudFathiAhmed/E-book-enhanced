@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_e_book/core/utils/values_manager.dart';
 
 class BooksCoverWidget extends StatelessWidget {
@@ -17,17 +18,17 @@ class BooksCoverWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      borderRadius: const BorderRadius.all(Radius.circular(AppSize.s15)),
+      borderRadius: BorderRadius.all(Radius.circular(AppSize.s15.r)),
       child: Ink(
-        height: AppSize.s178,
-        width: AppSize.s120,
+        height: height.h,
+        width: width.w,
         decoration: BoxDecoration(
           border: Border.all(
             color: Theme.of(context).primaryColor,
-            width: AppSize.s2,
+            width: AppSize.s2.w,
             style: BorderStyle.solid,
           ),
-          borderRadius: const BorderRadius.all(Radius.circular(AppSize.s15)),
+          borderRadius: BorderRadius.all(Radius.circular(AppSize.s15.r)),
           image: DecorationImage(
             image: NetworkImage(imageUrl),
             fit: BoxFit.contain,

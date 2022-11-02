@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_e_book/core/utils/values_manager.dart';
 
 //NOTE: default width ==> double.infinity
@@ -35,24 +36,24 @@ class DefaultOutlinedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // width: width,
-      height: height,
+      height: height.h,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(borderRadius),
+        borderRadius: BorderRadius.circular(borderRadius.r),
         color: backgroundColor,
       ),
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius),
+            borderRadius: BorderRadius.circular(borderRadius.r),
             side: BorderSide(
               color: borderColor,
-              width: borderWidth,
+              width: borderWidth.w,
             ),
           ),
           side: BorderSide(
             color: borderColor,
-            width: borderWidth,
+            width: borderWidth.w,
           ),
         ),
         onPressed: onclick,
