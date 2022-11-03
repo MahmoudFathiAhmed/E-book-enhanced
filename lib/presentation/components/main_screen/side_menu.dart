@@ -57,7 +57,6 @@ class SideMenu extends StatelessWidget {
                 title: AppStrings.changeTheme,
                 icon: Icons.light_mode_outlined,
                 press: () {
-                  // BlocProvider.of<ThemeCubit>(context).changeTheme();
                   context.read<ThemeCubit>().changeTheme();
                 },
               )

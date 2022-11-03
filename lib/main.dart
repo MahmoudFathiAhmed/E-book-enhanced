@@ -47,3 +47,8 @@ class MyApp extends StatelessWidget {
 //favourites
 //payment
 //sharedprefs
+//splash
+//appicon
+//onboarding
+//share
+//contact us

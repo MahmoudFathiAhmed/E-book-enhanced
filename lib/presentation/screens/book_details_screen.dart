@@ -211,12 +211,15 @@ class BookDetailsScreen extends StatelessWidget {
                           : DefaultHeader(
                               header: AppStrings.authors.toUpperCase()),
                       state.book.authors.isEmpty
-                          ? const Text(AppStrings.noInfo)
+                          ? Text(AppStrings.noInfo,
+                              style: Theme.of(context).textTheme.displayMedium)
                           : SizedBox(
                               height: AppCount.c110 *
                                   state.book.authors.length.toDouble().h,
                               child: ListView.separated(
                                 physics: const NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                primary: false,
                                 itemBuilder: (context, index) =>
                                     AuthorCardWidget(
                                   name: state.book.authors[index].name!,
@@ -239,6 +242,9 @@ class BookDetailsScreen extends StatelessWidget {
                               height: AppCount.c41 *
                                   state.book.bookshelves.length.toDouble().h,
                               child: ListView.separated(
+                                physics: const NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                primary: false,
                                 itemBuilder: (context, index) =>
                                     DefaultOutlinedButton(
                                   text: state.book.bookshelves[index],
@@ -261,6 +267,10 @@ class BookDetailsScreen extends StatelessWidget {
                                   height: AppCount.c41 *
                                       state.book.subjects.length.toDouble().h,
                                   child: ListView.separated(
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    shrinkWrap: true,
+                                    primary: false,
                                     itemBuilder: (context, index) =>
                                         DefaultOutlinedButton(
                                       text: state.book.subjects[index],
@@ -280,7 +290,11 @@ class BookDetailsScreen extends StatelessWidget {
                                     itemCount: state.book.subjects.length,
                                   ),
                                 )
-                              : const Text(AppStrings.noInfo)
+                              : Text(
+                                  AppStrings.noInfo,
+                                  style:
+                                      Theme.of(context).textTheme.displayMedium,
+                                )
                     ],
                   ),
                 ),
