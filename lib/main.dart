@@ -43,3 +43,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+//favourites
+//payment
+//sharedprefs

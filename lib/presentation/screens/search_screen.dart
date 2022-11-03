@@ -8,6 +8,8 @@ import 'package:my_e_book/core/utils/values_manager.dart';
 import 'package:my_e_book/domain/entity/book.dart';
 import 'package:my_e_book/presentation/components/category/book_card_widget.dart';
 import 'package:my_e_book/presentation/components/search/default_text_form_field.dart';
+import 'package:my_e_book/presentation/components/search/no_content_widget.dart';
+import 'package:my_e_book/presentation/components/search/no_search_widget.dart';
 import 'package:my_e_book/presentation/controller/books/bloc/books_bloc.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -97,6 +99,7 @@ class _SearchScreenState extends State<SearchScreen> {
       create: (context) => sl<BooksBloc>(),
       child: BlocBuilder<BooksBloc, BooksState>(
         builder: (context, state) => Scaffold(
+          resizeToAvoidBottomInset: false,
           appBar: AppBar(
             actions: _buildAppBarActions(),
             title: DefaultTextFormField(
@@ -137,32 +140,36 @@ class _SearchScreenState extends State<SearchScreen> {
             child: Padding(
               padding: EdgeInsets.all(AppSize.s10.r),
               child: _isSearching
-                  ? ListView.separated(
-                      physics: const BouncingScrollPhysics(),
-                      shrinkWrap: true,
-                      primary: false,
-                      itemCount: state.books.books.length,
-                      separatorBuilder: (context, index) =>
-                          SizedBox(height: AppSize.s5.h),
-                      itemBuilder: (context, index) => SizedBox(
-                        height: AppSize.s165.h,
-                        child: BookCardWidget(
-                          imageUrl: state.books.books[index].formats.image,
-                          onTap: () {
-                            Navigator.of(context).pushNamed(
-                                Routes.bookDetailsRoute,
-                                arguments: BookDetailsArgs(
-                                    state.books.books[index].id));
-                          },
-                          bookTitle: state.books.books[index].title,
-                          author: state.books.books[index].authors.isNotEmpty
-                              ? state.books.books[index].authors.first.name!
-                              : AppStrings.noInfo,
-                          downloadCount: state.books.books[index].downloadCount,
-                        ),
-                      ),
-                    )
-                  : Container(),
+                  ? state.books.books.isNotEmpty
+                      ? ListView.separated(
+                          physics: const BouncingScrollPhysics(),
+                          shrinkWrap: true,
+                          primary: false,
+                          itemCount: state.books.books.length,
+                          separatorBuilder: (context, index) =>
+                              SizedBox(height: AppSize.s5.h),
+                          itemBuilder: (context, index) => SizedBox(
+                            height: AppSize.s165.h,
+                            child: BookCardWidget(
+                              imageUrl: state.books.books[index].formats.image,
+                              onTap: () {
+                                Navigator.of(context).pushNamed(
+                                    Routes.bookDetailsRoute,
+                                    arguments: BookDetailsArgs(
+                                        state.books.books[index].id));
+                              },
+                              bookTitle: state.books.books[index].title,
+                              author: state
+                                      .books.books[index].authors.isNotEmpty
+                                  ? state.books.books[index].authors.first.name!
+                                  : AppStrings.noInfo,
+                              downloadCount:
+                                  state.books.books[index].downloadCount,
+                            ),
+                          ),
+                        )
+                      : const NoContentWidget()
+                  : const NoSearchWidget(),
             ),
           ),
         ),
