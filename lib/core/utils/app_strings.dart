@@ -13,11 +13,20 @@ class AppStrings {
   static const String epubRoute = '/epubScreen';
   static const String pdfRoute = '/pdfScreen';
   static const String searchRoute = '/searchScreen';
+  static const String favouritesRoute = '/favouritesScreen';
 
   //errors
   static const String error = 'error';
   static const String code = 'code';
   static const String message = 'message';
+
+  //Database
+  static const String favouritesTableName = 'favourites';
+  static const String idDb = 'id';
+  static const String titleDb = 'title';
+  static const String authorDb = 'author';
+  static const String downloadCountDb = 'downloadCount';
+  static const String imageUrlDb = 'imageUrl';
 
   //app
   static const String appName = 'My E-Book';
@@ -44,7 +53,7 @@ class AppStrings {
   static const String changeTheme = 'Change Theme';
 
   static const String loadingStateRenderer = 'Loading';
-    static const retryAgainStateRenderer = "retry_again";
+  static const retryAgainStateRenderer = "retry_again";
   static const okStateRenderer = "ok";
 
   // error handler

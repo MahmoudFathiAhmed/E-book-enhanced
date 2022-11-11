@@ -37,7 +37,10 @@ class ApiConstants{
   static const String epubApi = 'application/epub+zip';
   static const String pdfApi = 'application/pdf';
 
-  static const String noImageApiApi = 'https://image.shutterstock.com/image-vector/no-image-available-vector-hand-260nw-745639717.jpg';
+  static const String noTextHtmlApi = 'https://www.gutenberg.org/files/37106/37106-h/37106-h.htm';
+  static const String noImageApi = 'https://image.shutterstock.com/image-vector/no-image-available-vector-hand-260nw-745639717.jpg';
+  static const String noEpubApi = 'https://www.gutenberg.org/ebooks/37106.epub3.images';
+  static const String noPdfApi = 'https://www.gutenberg.org/files/35261/35261-pdf.pdf';
 
 
 }

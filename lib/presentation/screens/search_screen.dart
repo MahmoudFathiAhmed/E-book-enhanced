@@ -3,10 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_e_book/core/routes/app_routes.dart';
 import 'package:my_e_book/core/services/service_locator.dart';
+import 'package:my_e_book/core/utils/app_assets.dart';
 import 'package:my_e_book/core/utils/app_strings.dart';
 import 'package:my_e_book/core/utils/values_manager.dart';
+import 'package:my_e_book/data/datasource/local_datasource/book_local_data_source.dart';
 import 'package:my_e_book/domain/entity/book.dart';
 import 'package:my_e_book/presentation/components/category/book_card_widget.dart';
+import 'package:my_e_book/presentation/components/general/my_icon_button.dart';
 import 'package:my_e_book/presentation/components/search/default_text_form_field.dart';
 import 'package:my_e_book/presentation/components/search/no_content_widget.dart';
 import 'package:my_e_book/presentation/components/search/no_search_widget.dart';
@@ -32,6 +35,53 @@ class _SearchScreenState extends State<SearchScreen> {
   late List<Book> searchedForChars;
   bool _isSearching = false;
 
+  FavouritesDb favouritesDb = FavouritesDb();
+  Set favourites = {};
+
+  Future readData() async {
+    List<Map> response =
+        await favouritesDb.read(AppStrings.favouritesTableName);
+    favourites.addAll(response);
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  bool isFavourites(int bookId) {
+    return favourites.any((element) => element[AppStrings.idDb] == bookId);
+  }
+
+  void manageFavourites(
+      {required int bookId,
+      required String title,
+      required String author,
+      required int downloadCount,
+      required String imageUrl}) {
+    bool existingIndex =
+        favourites.any((element) => element[AppStrings.idDb] == bookId);
+    if (existingIndex) {
+      favourites.removeWhere((element) => element[AppStrings.idDb] == bookId);
+      favouritesDb.delete(
+          AppStrings.favouritesTableName, "${AppStrings.idDb} = $bookId");
+      readData();
+    } else {
+      favouritesDb.insert(AppStrings.favouritesTableName, {
+        AppStrings.idDb: bookId,
+        AppStrings.titleDb: title,
+        AppStrings.authorDb: author,
+        AppStrings.downloadCountDb: downloadCount,
+        AppStrings.imageUrlDb: imageUrl,
+      });
+      readData();
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readData();
+  }
+
   void addSearchedFOrItemsToSearchedList(String searchedCharacter) {
     searchedForChars = allChars
         .where((character) =>
@@ -43,28 +93,21 @@ class _SearchScreenState extends State<SearchScreen> {
   List<Widget> _buildAppBarActions() {
     if (_isSearching) {
       return [
-        IconButton(
-          onPressed: () {
-            _clearSearch();
-            Navigator.pop(context);
-          },
-          // padding: EdgeInsets.zero,
-          constraints: const BoxConstraints(),
-          splashRadius: ((AppSize.s24 / AppSize.s2) - AppSize.s1).r,
-          icon: Icon(Icons.clear, color: Theme.of(context).primaryColor),
+        Padding(
+          padding: EdgeInsets.only(right: AppPadding.p8.w),
+          child: MyIconButton(
+              icon: Icons.clear,
+              onPressed: () {
+                _clearSearch();
+                Navigator.pop(context);
+              }),
         ),
       ];
     } else {
       return [
-        IconButton(
-          onPressed: _startSearch,
-          // padding: EdgeInsets.only(right: 8),
-          constraints: const BoxConstraints(),
-          splashRadius: ((AppSize.s24 / AppSize.s2) - AppSize.s1).r,
-          icon: Icon(
-            Icons.search,
-            color: Theme.of(context).primaryColor,
-          ),
+        Padding(
+          padding: EdgeInsets.only(right: AppPadding.p8.w),
+          child: MyIconButton(icon: Icons.search, onPressed: _startSearch),
         ),
       ];
     }
@@ -165,6 +208,17 @@ class _SearchScreenState extends State<SearchScreen> {
                                   : AppStrings.noInfo,
                               downloadCount:
                                   state.books.books[index].downloadCount,
+                              favouritesIcon: isFavourites(state.books.books[index].id)
+                      ? Icons.favorite
+                      : Icons.favorite_border,
+                              favouritesOnTap: () {
+                                 manageFavourites(
+                        bookId: state.books.books[index].id,
+                        title: state.books.books[index].title,
+                        author: state.books.books[index].authors.first.name!,
+                        downloadCount: state.books.books[index].downloadCount,
+                        imageUrl: state.books.books[index].formats.image);
+                              },
                             ),
                           ),
                         )

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_e_book/core/utils/app_strings.dart';
+import 'package:my_e_book/presentation/favourites_screen.dart';
 import 'package:my_e_book/presentation/screens/book_details_screen.dart';
 import 'package:my_e_book/presentation/screens/category_screen.dart';
 import 'package:my_e_book/presentation/screens/epub_screen.dart';
@@ -17,6 +18,7 @@ class Routes {
   static const String epubRoute = AppStrings.epubRoute;
   static const String pdfRoute = AppStrings.pdfRoute;
   static const String searchRoute = AppStrings.searchRoute;
+  static const String favouritesRoute = AppStrings.favouritesRoute;
 }
 
 class AppRoutes {
@@ -26,6 +28,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => const MainScreen());
       case Routes.searchRoute:
         return MaterialPageRoute(builder: (context) => const SearchScreen());
+      case Routes.favouritesRoute:
+        return MaterialPageRoute(builder: (context) => const FavouritesScreen());
       case Routes.bookDetailsRoute:
         BookDetailsArgs bookDetailsArgs =
             routeSettings.arguments as BookDetailsArgs;

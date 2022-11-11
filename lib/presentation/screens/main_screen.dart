@@ -6,6 +6,7 @@ import 'package:my_e_book/core/services/service_locator.dart';
 import 'package:my_e_book/core/utils/app_assets.dart';
 import 'package:my_e_book/core/utils/app_strings.dart';
 import 'package:my_e_book/core/utils/values_manager.dart';
+import 'package:my_e_book/data/datasource/local_datasource/book_local_data_source.dart';
 import 'package:my_e_book/presentation/components/category/book_card_widget.dart';
 import 'package:my_e_book/presentation/components/general/default_header.dart';
 import 'package:my_e_book/presentation/components/main_screen/books_cover_widget.dart';
@@ -13,8 +14,60 @@ import 'package:my_e_book/presentation/components/main_screen/categories_element
 import 'package:my_e_book/presentation/components/main_screen/side_menu.dart';
 import 'package:my_e_book/presentation/controller/books/bloc/books_bloc.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  FavouritesDb favouritesDb = FavouritesDb();
+  Set favourites = {};
+
+  Future readData() async {
+    List<Map> response =
+        await favouritesDb.read(AppStrings.favouritesTableName);
+    favourites.addAll(response);
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  bool isFavourites(int bookId) {
+    return favourites.any((element) => element[AppStrings.idDb] == bookId);
+  }
+
+  void manageFavourites(
+      {required int bookId,
+      required String title,
+      required String author,
+      required int downloadCount,
+      required String imageUrl}) {
+    bool existingIndex =
+        favourites.any((element) => element[AppStrings.idDb] == bookId);
+    if (existingIndex) {
+      favourites.removeWhere((element) => element[AppStrings.idDb] == bookId);
+      favouritesDb.delete(
+          AppStrings.favouritesTableName, "${AppStrings.idDb} = $bookId");
+      readData();
+    } else {
+      favouritesDb.insert(AppStrings.favouritesTableName, {
+        AppStrings.idDb: bookId,
+        AppStrings.titleDb: title,
+        AppStrings.authorDb: author,
+        AppStrings.downloadCountDb: downloadCount,
+        AppStrings.imageUrlDb: imageUrl,
+      });
+      readData();
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    readData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +77,7 @@ class MainScreen extends StatelessWidget {
       ),
       drawer:
           const SideMenu(headerImage: AppImages.eBookLogo, radius: AppSize.s15),
+
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -94,6 +148,21 @@ class MainScreen extends StatelessWidget {
                                 : AppStrings.noInfo,
                             downloadCount:
                                 state.books.books[index].downloadCount,
+                            favouritesOnTap: () {
+                              manageFavourites(
+                                  bookId: state.books.books[index].id,
+                                  title: state.books.books[index].title,
+                                  author: state
+                                      .books.books[index].authors.first.name!,
+                                  downloadCount:
+                                      state.books.books[index].downloadCount,
+                                  imageUrl:
+                                      state.books.books[index].formats.image);
+                            },
+                            favouritesIcon:
+                                isFavourites(state.books.books[index].id)
+                                    ? Icons.favorite
+                                    : Icons.favorite_border,
                           ),
                         ),
                       );

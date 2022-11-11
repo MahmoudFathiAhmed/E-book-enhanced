@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_e_book/core/utils/values_manager.dart';
 
 class DefaultButton extends StatelessWidget {
   final String text;
@@ -18,6 +19,7 @@ class DefaultButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      elevation: AppSize.s0,
       minWidth: minWidth.w,
       onPressed: onclick,
       color: Theme.of(context).primaryColor,

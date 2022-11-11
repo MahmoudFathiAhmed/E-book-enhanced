@@ -16,14 +16,18 @@ class BooksState extends Equatable {
           id: AppCount.c100,
           title: StateStrings.titleState,
           copyright: true,
-          authors: [Author(name: StateStrings.authorNameState, birthYear: AppCount.c1900, deathYear: AppCount.c1990)],
+          authors: [
+            Author(
+                name: StateStrings.authorNameState,
+                birthYear: AppCount.c1900,
+                deathYear: AppCount.c1990)
+          ],
           subjects: [StateStrings.subjectState],
           bookshelves: [StateStrings.bookShelfState],
           languages: [StateStrings.languagesState],
           formats: Formats(
             textHtml: StateStrings.textHtmlState,
-            image:
-                StateStrings.imageState,
+            image: StateStrings.imageState,
             epub: StateStrings.epubState,
             pdf: StateStrings.pdfState,
           ),
@@ -33,14 +37,18 @@ class BooksState extends Equatable {
           id: AppCount.c100,
           title: StateStrings.titleState1,
           copyright: true,
-          authors: [Author(name: StateStrings.authorNameState1, birthYear: AppCount.c1900, deathYear: AppCount.c1990)],
+          authors: [
+            Author(
+                name: StateStrings.authorNameState1,
+                birthYear: AppCount.c1900,
+                deathYear: AppCount.c1990)
+          ],
           subjects: [StateStrings.subjectState1],
           bookshelves: [StateStrings.bookShelfState1],
           languages: [StateStrings.languagesState1],
           formats: Formats(
             textHtml: StateStrings.textHtmlState1,
-            image:
-                StateStrings.imageState1,
+            image: StateStrings.imageState1,
             epub: StateStrings.epubState1,
             pdf: StateStrings.pdfState1,
           ),
@@ -50,14 +58,18 @@ class BooksState extends Equatable {
           id: AppCount.c100,
           title: StateStrings.titleState2,
           copyright: true,
-          authors: [Author(name: StateStrings.authorNameState2, birthYear: AppCount.c1900, deathYear: AppCount.c1990)],
+          authors: [
+            Author(
+                name: StateStrings.authorNameState2,
+                birthYear: AppCount.c1900,
+                deathYear: AppCount.c1990)
+          ],
           subjects: [StateStrings.subjectState2],
           bookshelves: [StateStrings.bookShelfState2],
           languages: [StateStrings.languagesState2],
           formats: Formats(
             textHtml: StateStrings.textHtmlState2,
-            image:
-                StateStrings.imageState2,
+            image: StateStrings.imageState2,
             epub: StateStrings.epubState2,
             pdf: StateStrings.pdfState2,
           ),
@@ -71,14 +83,18 @@ class BooksState extends Equatable {
       id: AppCount.c100,
       title: StateStrings.titleState2,
       copyright: true,
-      authors: [Author(name: StateStrings.authorNameState2, birthYear: AppCount.c1900, deathYear: AppCount.c1990)],
+      authors: [
+        Author(
+            name: StateStrings.authorNameState2,
+            birthYear: AppCount.c1900,
+            deathYear: AppCount.c1990)
+      ],
       subjects: [StateStrings.subjectState2],
       bookshelves: [StateStrings.bookShelfState2],
       languages: [StateStrings.languagesState2],
       formats: Formats(
         textHtml: StateStrings.textHtmlState2,
-        image:
-            StateStrings.imageState2,
+        image: StateStrings.imageState2,
         epub: StateStrings.epubState2,
         pdf: StateStrings.pdfState2,
       ),
@@ -116,7 +132,9 @@ class BooksState extends Equatable {
         bookMessage,
       ];
 }
-class StateStrings{
+
+
+class StateStrings {
   //state
   static const String titleState = 'The Enchanted April';
   static const String authorNameState = 'Von Arnim, Elizabeth';
@@ -132,7 +150,6 @@ class StateStrings{
   static const String pdfState =
       'https://www.gutenberg.org/files/33283/33283-pdf.pdf';
 
-  
   static const String titleState1 = 'Betty Wales on the campus';
   static const String authorNameState1 = 'Dunton, Edith K. (Edith Kellogg)';
   static const String subjectState1 = 'fiction';
@@ -147,7 +164,6 @@ class StateStrings{
   static const String pdfState1 =
       'https://www.gutenberg.org/files/33283/33283-pdf.pdf';
 
-      
   static const String titleState2 = 'The little acrobat: a story of Italy';
   static const String authorNameState2 = 'Duggan, Janie Prichard';
   static const String subjectState2 = 'Boys -- Juvenile fiction';
@@ -161,7 +177,4 @@ class StateStrings{
       'https://www.gutenberg.org/ebooks/69064.epub.images';
   static const String pdfState2 =
       'https://www.gutenberg.org/files/33283/33283-pdf.pdf';
-
-  
-
 }

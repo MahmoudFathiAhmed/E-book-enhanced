@@ -47,7 +47,6 @@ class ChnageThemeEvent extends BooksEvent {
   const ChnageThemeEvent({
     required this.isDark,
   });
-  
 
   @override
   List<Object> get props => [

@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-//favourites
+//favourites done.♥
 //payment
 //sharedprefs
 //splash

@@ -18,10 +18,14 @@ class BookModel extends Book {
       id: json[ApiConstants.idApi],
       title: json[ApiConstants.titleApi],
       copyright: json[ApiConstants.copyRightApi],
-      authors: List<AuthorModel>.from(json[ApiConstants.authorsApi].map((e)=>AuthorModel.fromJson(e))),
-      subjects: List<String>.from(json[ApiConstants.subjectsApi].map((e)=>e)),
-      bookshelves: List<String>.from(json[ApiConstants.bookShelvesApi].map((e)=>e)),
-      languages: List<String>.from(json[ApiConstants.languagesApi].map((e)=>e)),
+      authors: List<AuthorModel>.from(
+          json[ApiConstants.authorsApi].map((e) => AuthorModel.fromJson(e))),
+      subjects: List<String>.from(json[ApiConstants.subjectsApi].map((e) => e)),
+      bookshelves:
+          List<String>.from(json[ApiConstants.bookShelvesApi].map((e) => e)),
+      languages:
+          List<String>.from(json[ApiConstants.languagesApi].map((e) => e)),
       formats: FormatModel.fromJson(json[ApiConstants.formatsApi]),
       downloadCount: json[ApiConstants.downloadCountApi]);
+
 }

@@ -14,4 +14,5 @@ class AppJson{
   static const String error= "$jsonPath/error.json";
   static const String loading= "$jsonPath/loading.json";
   static const String success= "$jsonPath/sucess.json";
+  static const String noContent= "$jsonPath/noContent.json";
 }

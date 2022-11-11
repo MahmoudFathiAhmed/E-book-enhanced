@@ -8,8 +8,9 @@ class AuthorModel extends Author {
       required super.birthYear,
       required super.deathYear});
   factory AuthorModel.fromJson(Map<String, dynamic> json) => AuthorModel(
-      name: json[ApiConstants.nameApi]??ApiConstants.nameApi,
-      birthYear: json[ApiConstants.birthYearApi]??AppCount.c1900,
-      deathYear: json[ApiConstants.deathYearApi]??AppCount.c1990
-      );
+      name: json[ApiConstants.nameApi] ?? ApiConstants.nameApi,
+      birthYear: json[ApiConstants.birthYearApi] ?? AppCount.c1900,
+      deathYear: json[ApiConstants.deathYearApi] ?? AppCount.c1990);
+
+    
 }

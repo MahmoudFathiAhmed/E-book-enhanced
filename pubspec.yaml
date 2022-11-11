@@ -24,6 +24,10 @@ dependencies:
   internet_connection_checker: ^1.0.0+1
   internet_file: ^1.2.0
   lottie: ^1.4.3
+  path: ^1.8.2
+  rxdart: ^0.27.5
+  shared_preferences: ^2.0.15
+  sqflite: ^2.2.0+3
   syncfusion_flutter_pdfviewer: ^20.3.50
   webview_flutter: ^3.0.4
 
@@ -40,6 +44,7 @@ flutter:
     - assets/json/error.json
     - assets/json/loading.json
     - assets/json/success.json
+    - assets/json/noContent.json
     - assets/images/
   fonts:
     - family: Nasalization

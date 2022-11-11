@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_e_book/core/utils/app_strings.dart';
 import 'package:my_e_book/core/utils/values_manager.dart';
+import 'package:my_e_book/presentation/components/general/my_icon_button.dart';
 import 'package:my_e_book/presentation/components/main_screen/books_cover_widget.dart';
 
 class BookCardWidget extends StatelessWidget {
@@ -10,13 +11,17 @@ class BookCardWidget extends StatelessWidget {
   final String author;
   final int downloadCount;
   final VoidCallback onTap;
+  final VoidCallback favouritesOnTap;
+  final IconData favouritesIcon;
   const BookCardWidget(
       {super.key,
       required this.imageUrl,
       required this.onTap,
       required this.bookTitle,
       required this.author,
-      required this.downloadCount});
+      required this.downloadCount,
+      required this.favouritesOnTap,
+      required this.favouritesIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -52,16 +57,22 @@ class BookCardWidget extends StatelessWidget {
                   style: Theme.of(context).textTheme.displaySmall,
                 ),
                 SizedBox(height: AppSize.s4.h),
-                RichText(
-                  text: TextSpan(children: [
-                    TextSpan(
-                      text: AppStrings.downloadCount,
-                      style: Theme.of(context).textTheme.titleLarge,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    RichText(
+                      text: TextSpan(children: [
+                        TextSpan(
+                          text: AppStrings.downloadCount,
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        TextSpan(
+                            text: '$downloadCount',
+                            style: Theme.of(context).textTheme.headlineMedium),
+                      ]),
                     ),
-                    TextSpan(
-                        text: '$downloadCount',
-                        style: Theme.of(context).textTheme.headlineMedium),
-                  ]),
+                    MyIconButton(icon: favouritesIcon,onPressed: favouritesOnTap ),
+                  ],
                 ),
               ],
             ),

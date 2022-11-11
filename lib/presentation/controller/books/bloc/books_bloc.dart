@@ -18,8 +18,11 @@ part 'books_state.dart';
 class BooksBloc extends Bloc<BooksEvent, BooksState> {
   final GetAllBooksUseCase getAllBooksUseCase;
   final GetABookUseCase getABookUseCase;
-  BooksBloc(this.getAllBooksUseCase, this.getABookUseCase)
-      : super(const BooksState()) {
+
+  BooksBloc(
+    this.getAllBooksUseCase,
+    this.getABookUseCase,
+  ) : super(const BooksState()) {
     on<GetAllBooksEvent>(_getAllBooks);
     on<GetABookEvent>(_getABook);
   }
@@ -51,4 +54,12 @@ class BooksBloc extends Bloc<BooksEvent, BooksState> {
       (r) => emit(state.copyWith(book: r, bookState: RequestState.loaded)),
     );
   }
+
+  
+
+  
+
+  
+
+  
 }

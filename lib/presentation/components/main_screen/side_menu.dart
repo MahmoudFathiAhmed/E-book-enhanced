@@ -46,7 +46,9 @@ class SideMenu extends StatelessWidget {
               DrawerListTile(
                 title: AppStrings.favourites,
                 icon: Icons.star,
-                press: () {},
+                press: () {
+                  Navigator.of(context).pushNamed(Routes.favouritesRoute);
+                },
               ),
               DrawerListTile(
                 title: AppStrings.contactUs,
