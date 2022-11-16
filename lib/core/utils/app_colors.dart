@@ -13,5 +13,6 @@ class AppColors{
   static Color myDarkGrey = const Color(0xFF2C3640);
   static Color myDarkBlue = const Color(0xFF082238);
   static Color navyBlue = const Color(0xff111f2d);
+  static Color navy = const Color(0xff01141B);
 
 }

@@ -133,7 +133,6 @@ class BooksState extends Equatable {
       ];
 }
 
-
 class StateStrings {
   //state
   static const String titleState = 'The Enchanted April';

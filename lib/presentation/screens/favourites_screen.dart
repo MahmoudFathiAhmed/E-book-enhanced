@@ -4,6 +4,7 @@ import 'package:my_e_book/core/utils/app_strings.dart';
 import 'package:my_e_book/core/utils/values_manager.dart';
 import 'package:my_e_book/data/datasource/local_datasource/book_local_data_source.dart';
 import 'package:my_e_book/presentation/components/category/book_card_widget.dart';
+import 'package:my_e_book/presentation/components/favourites/no_favourites_widget.dart';
 
 class FavouritesScreen extends StatefulWidget {
   const FavouritesScreen({Key? key}) : super(key: key);
@@ -33,9 +34,7 @@ class _FavouritesScreenState extends State<FavouritesScreen> {
         AppStrings.favouritesTableName, "${AppStrings.idDb} = $bookId");
 
     favourites.removeWhere((element) => element[AppStrings.idDb] == bookId);
-    setState(() {
-      
-    });
+    setState(() {});
   }
 
   @override
@@ -53,31 +52,34 @@ class _FavouritesScreenState extends State<FavouritesScreen> {
           IconButton(
               onPressed: () {
                 FavouritesDb.deleteAllDatabase();
+                favourites.clear();
                 setState(() {});
               },
               icon: const Icon(Icons.delete)),
         ],
       ),
-      body: ListView.separated(
-        physics: const BouncingScrollPhysics(),
-        itemCount: favourites.length,
-        separatorBuilder: (context, index) => SizedBox(
-          height: AppSize.s5.h,
-        ),
-        itemBuilder: (context, index) => BookCardWidget(
-          imageUrl: favourites.elementAt(index)[AppStrings.imageUrlDb],
-          onTap: () {},
-          bookTitle: favourites.elementAt(index)[AppStrings.titleDb],
-          author: favourites.elementAt(index)[AppStrings.authorDb],
-          downloadCount:
-              favourites.elementAt(index)[AppStrings.downloadCountDb],
-          favouritesOnTap: () {
-            deleteAFavourite(
-                bookId: favourites.elementAt(index)[AppStrings.idDb]);
-          },
-          favouritesIcon: Icons.favorite,
-        ),
-      ),
+      body: favourites.isNotEmpty
+          ? ListView.separated(
+              physics: const BouncingScrollPhysics(),
+              itemCount: favourites.length,
+              separatorBuilder: (context, index) => SizedBox(
+                height: AppSize.s5.h,
+              ),
+              itemBuilder: (context, index) => BookCardWidget(
+                imageUrl: favourites.elementAt(index)[AppStrings.imageUrlDb],
+                onTap: () {},
+                bookTitle: favourites.elementAt(index)[AppStrings.titleDb],
+                author: favourites.elementAt(index)[AppStrings.authorDb],
+                downloadCount:
+                    favourites.elementAt(index)[AppStrings.downloadCountDb],
+                favouritesOnTap: () {
+                  deleteAFavourite(
+                      bookId: favourites.elementAt(index)[AppStrings.idDb]);
+                },
+                favouritesIcon: Icons.favorite,
+              ),
+            )
+          : const NoFavouritesWidget(),
     );
   }
 }

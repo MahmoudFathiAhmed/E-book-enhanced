@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_e_book/core/routes/app_routes.dart';
+import 'package:my_e_book/core/routes/screen_arguments.dart';
 import 'package:my_e_book/core/services/service_locator.dart';
 import 'package:my_e_book/core/utils/app_strings.dart';
 import 'package:my_e_book/core/utils/font_manager.dart';
@@ -14,6 +15,7 @@ import 'package:my_e_book/presentation/components/general/default_header.dart';
 import 'package:my_e_book/presentation/components/general/default_outlined_button.dart';
 import 'package:my_e_book/presentation/components/general/my_icon_button.dart';
 import 'package:my_e_book/presentation/controller/books/bloc/books_bloc.dart';
+import 'package:share_plus/share_plus.dart';
 
 class BookDetailsScreen extends StatefulWidget {
   final int id;
@@ -85,21 +87,29 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                   padding: EdgeInsets.only(right: AppPadding.p8.w),
                   child: MyIconButton(
                     icon: isFavourites(state.book.id)
-                                    ? Icons.favorite
-                                    : Icons.favorite_border,
+                        ? Icons.favorite
+                        : Icons.favorite_border,
                     onPressed: () {
                       manageFavourites(
-                                  bookId: state.book.id,
-                                  title: state.book.title,
-                                  author: state
-                                      .book.authors.first.name!,
-                                  downloadCount:
-                                      state.book.downloadCount,
-                                  imageUrl:
-                                      state.book.formats.image);
+                          bookId: state.book.id,
+                          title: state.book.title,
+                          author: state.book.authors.first.name!,
+                          downloadCount: state.book.downloadCount,
+                          imageUrl: state.book.formats.image);
                     },
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(right: AppPadding.p8.r),
+                  child: MyIconButton(
+                      icon: Icons.share,
+                      onPressed: () async {
+                        await Share.share(
+                          state.book.formats.image,
+                          subject: state.book.title,
+                          );
+                      }),
+                )
               ],
             ),
             body: SafeArea(
@@ -167,7 +177,10 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                                         height: AppSize.s26,
                                         textColor:
                                             Theme.of(context).primaryColor,
-                                        onclick: () {},
+                                        onclick: () {
+                                          Navigator.of(context).pushNamed(
+                                              Routes.paymentIntegrationRoute);
+                                        },
                                         borderRadius: AppSize.s13,
                                         borderColor:
                                             Theme.of(context).primaryColor,

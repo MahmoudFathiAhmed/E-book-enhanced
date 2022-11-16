@@ -6,7 +6,7 @@ class AppStrings {
   //ROUTES
   static const String noRouteFound = 'No Route Found';
   static const String initialRoute = '/';
-  // static const String mainRoute = '/mainScreen';
+  static const String mainRoute = '/mainScreen';
   static const String categoryRoute = '/categoryScreen';
   static const String bookDetailsRoute = '/bookDetailsScreen';
   static const String webViewRoute = '/webViewScreen';
@@ -14,6 +14,10 @@ class AppStrings {
   static const String pdfRoute = '/pdfScreen';
   static const String searchRoute = '/searchScreen';
   static const String favouritesRoute = '/favouritesScreen';
+  static const String paymentIntegrationRoute = '/paymentIntegrationScreen';
+  static const String toggleRoute = '/toggleScreen';
+  static const String visaCardRoute = '/visaCardScreen';
+  static const String refCodeRoute = '/refCodeScreen';
 
   //errors
   static const String error = 'error';
@@ -51,6 +55,26 @@ class AppStrings {
   static const String search = 'Search ';
   static const String contactUs = 'Contact Us ';
   static const String changeTheme = 'Change Theme';
+  static const String addFavourites = 'Please add your favourite books first';
+  static const String noContentFound = 'Sorry, No Content Found';
+  static const String noSearchDone = 'No search done. Please try writing your book';
+  static const String userDetails = 'User Details';
+  static const String firstName = 'First Name';
+  static const String lastName = 'Last Name';
+  static const String email = 'Email';
+  static const String phone = 'Phone';
+  static const String pricePaymentIntegration = 'Price';
+  static const String validateFirstName = 'Enter your First Name';
+  static const String validateLastName = 'Enter your Last Name';
+  static const String validateEmail = 'Enter your Email';
+  static const String validatePhone = 'Enter your Phone';
+  static const String validatePrice = 'Enter your Price';
+  static const String payPaymentIntegration = 'PAY';
+  static const String paymentMethod = 'Payment Method';
+  static const String choosePaymentMethod = 'Please, choose your appropriate payment method';
+  static const String visaCard = 'Visa Card';
+  static const String refCode = 'Ref Code';
+  static const String refCodePurchase = 'You can use this reference code in any of our markets in order to purchase this book \n\n Your Code Is:';
 
   static const String loadingStateRenderer = 'Loading';
   static const retryAgainStateRenderer = "retry_again";

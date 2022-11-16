@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_e_book/core/routes/app_routes.dart';
+import 'package:my_e_book/core/routes/screen_arguments.dart';
 import 'package:my_e_book/core/services/service_locator.dart';
 import 'package:my_e_book/core/utils/app_assets.dart';
 import 'package:my_e_book/core/utils/app_strings.dart';
@@ -208,16 +209,20 @@ class _SearchScreenState extends State<SearchScreen> {
                                   : AppStrings.noInfo,
                               downloadCount:
                                   state.books.books[index].downloadCount,
-                              favouritesIcon: isFavourites(state.books.books[index].id)
-                      ? Icons.favorite
-                      : Icons.favorite_border,
+                              favouritesIcon:
+                                  isFavourites(state.books.books[index].id)
+                                      ? Icons.favorite
+                                      : Icons.favorite_border,
                               favouritesOnTap: () {
-                                 manageFavourites(
-                        bookId: state.books.books[index].id,
-                        title: state.books.books[index].title,
-                        author: state.books.books[index].authors.first.name!,
-                        downloadCount: state.books.books[index].downloadCount,
-                        imageUrl: state.books.books[index].formats.image);
+                                manageFavourites(
+                                    bookId: state.books.books[index].id,
+                                    title: state.books.books[index].title,
+                                    author: state
+                                        .books.books[index].authors.first.name!,
+                                    downloadCount:
+                                        state.books.books[index].downloadCount,
+                                    imageUrl:
+                                        state.books.books[index].formats.image);
                               },
                             ),
                           ),

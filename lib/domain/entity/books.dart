@@ -15,10 +15,11 @@ class Books extends Equatable {
     required this.books,
   });
 
-   Map<String, dynamic> toJson()=>{
-    ApiConstants.countApi: count,
-    ApiConstants.resultApi: List<dynamic>.from(books.map((x) => x.toJson())),
-  };
+  Map<String, dynamic> toJson() => {
+        ApiConstants.countApi: count,
+        ApiConstants.resultApi:
+            List<dynamic>.from(books.map((x) => x.toJson())),
+      };
 
   @override
   List<Object> get props => [count, books];

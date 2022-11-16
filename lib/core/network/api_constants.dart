@@ -1,9 +1,22 @@
-class ApiConstants{
+String paymobToken = '';
+String paymobOrderId = '';
+String paymobFinalTokenCard = '';
+String paymobFinalTokenKiosk = '';
+String paymobRefCode = '';
+class ApiConstants {
   static const String baseUrl = 'https://gutendex.com/books';
-  static String allBooks ()=> baseUrl;
-  static String aBooks (int id)=> '$baseUrl/$id';
-
-
+  static const String paymentBaseUrl = 'https://accept.paymob.com/api';
+  static const String paymobApiKey =
+      'ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnVZVzFsSWpvaWFXNXBkR2xoYkNJc0luQnliMlpwYkdWZmNHc2lPall5TURZeU9Dd2lZMnhoYzNNaU9pSk5aWEpqYUdGdWRDSjkubVJ0WlBnYW9IRDBKV0tjWGVmZWRvcUNNUU9XOW1jMFdnN0lQZnhwNk42RTRMR1Y4V3lBamd4T1VaS0NjVVk0RElaZWFXUk5fWktSbFVxbGZYcV9SRlE=';
+  static const String integrationIdCard = '3066295';
+  static const String integrationIdKiosk = '3066812';
+  static String allBooks() => baseUrl;
+  static String aBooks(int id) => '$baseUrl/$id';
+  static String firstToken() => '$paymentBaseUrl/auth/tokens';
+  static String orderId() => '$paymentBaseUrl/ecommerce/orders';
+  static String finalToken() => '$paymentBaseUrl/acceptance/payment_keys';
+  static String finalTokenKiosk() => '$paymentBaseUrl/acceptance/payment_keys';
+  static String refCode() => '$paymentBaseUrl/acceptance/payments/pay';
 
   //api
   static const String pageApi = 'page';
@@ -37,10 +50,12 @@ class ApiConstants{
   static const String epubApi = 'application/epub+zip';
   static const String pdfApi = 'application/pdf';
 
-  static const String noTextHtmlApi = 'https://www.gutenberg.org/files/37106/37106-h/37106-h.htm';
-  static const String noImageApi = 'https://image.shutterstock.com/image-vector/no-image-available-vector-hand-260nw-745639717.jpg';
-  static const String noEpubApi = 'https://www.gutenberg.org/ebooks/37106.epub3.images';
-  static const String noPdfApi = 'https://www.gutenberg.org/files/35261/35261-pdf.pdf';
-
-
+  static const String noTextHtmlApi =
+      'https://www.gutenberg.org/files/37106/37106-h/37106-h.htm';
+  static const String noImageApi =
+      'https://image.shutterstock.com/image-vector/no-image-available-vector-hand-260nw-745639717.jpg';
+  static const String noEpubApi =
+      'https://www.gutenberg.org/ebooks/37106.epub3.images';
+  static const String noPdfApi =
+      'https://www.gutenberg.org/files/35261/35261-pdf.pdf';
 }

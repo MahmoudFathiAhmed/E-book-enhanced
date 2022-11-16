@@ -27,5 +27,4 @@ class BookModel extends Book {
           List<String>.from(json[ApiConstants.languagesApi].map((e) => e)),
       formats: FormatModel.fromJson(json[ApiConstants.formatsApi]),
       downloadCount: json[ApiConstants.downloadCountApi]);
-
 }

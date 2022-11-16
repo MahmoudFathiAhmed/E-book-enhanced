@@ -43,12 +43,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-//favourites done.♥
-//payment
-//sharedprefs
-//splash
-//appicon
-//onboarding
-//share
-//contact us
+//share. 

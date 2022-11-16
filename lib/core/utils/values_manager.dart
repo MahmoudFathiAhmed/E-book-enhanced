@@ -350,6 +350,7 @@ class AppSize {
   static const double s155 = 155.0;
   static const double s160 = 160.0;
   static const double s165 = 165.0;
+  static const double s170 = 170.0;
   static const double s178 = 178.0;
   static const double s180 = 180.0;
   static const double s185 = 185.0;
@@ -476,6 +477,7 @@ class AppCount {
   static const int c160 = 160;
   static const int c190 = 190;
   static const int c200 = 200;
+  static const int c201 = 201;
   static const int c300 = 300;
   static const int c350 = 350;
   static const int c490 = 490;

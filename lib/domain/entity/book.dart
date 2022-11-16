@@ -27,17 +27,19 @@ class Book extends Equatable {
     required this.downloadCount,
   });
 
-   Map<String, dynamic> toJson() => {
-      ApiConstants.idApi :id ,
-      ApiConstants.titleApi : title,
-      ApiConstants.copyRightApi : copyright,
-      ApiConstants.authorsApi : List<Author>.from(authors.map((x) => x.toJson())),
-      ApiConstants.subjectsApi : List<String>.from(subjects.map((x) => x)),
-      ApiConstants.bookShelvesApi : List<String>.from(bookshelves.map((x) => x)),
-      ApiConstants.languagesApi : List<String>.from(languages.map((x) => x)),
-      ApiConstants.formatsApi : formats.toJson(),
-      ApiConstants.downloadCountApi : downloadCount,    
-  };
+  Map<String, dynamic> toJson() => {
+        ApiConstants.idApi: id,
+        ApiConstants.titleApi: title,
+        ApiConstants.copyRightApi: copyright,
+        ApiConstants.authorsApi:
+            List<Author>.from(authors.map((x) => x.toJson())),
+        ApiConstants.subjectsApi: List<String>.from(subjects.map((x) => x)),
+        ApiConstants.bookShelvesApi:
+            List<String>.from(bookshelves.map((x) => x)),
+        ApiConstants.languagesApi: List<String>.from(languages.map((x) => x)),
+        ApiConstants.formatsApi: formats.toJson(),
+        ApiConstants.downloadCountApi: downloadCount,
+      };
 
   @override
   List<Object> get props {
