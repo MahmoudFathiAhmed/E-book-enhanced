@@ -12,7 +12,7 @@ class CategoriesElements extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: AppSize.s36.h,
+      height: AppSize.s30.h,
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
@@ -25,7 +25,7 @@ class CategoriesElements extends StatelessWidget {
                   arguments:
                       CategoryScreenArgs(AppStrings.categoriesList[index]));
             },
-            borderRadius: AppSize.s18),
+            borderRadius: AppSize.s15),
         separatorBuilder: (context, index) => SizedBox(
           width: AppSize.s10.w,
         ),

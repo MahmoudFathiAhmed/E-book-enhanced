@@ -31,7 +31,7 @@ class BooksCoverWidget extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(AppSize.s15.r)),
           image: DecorationImage(
             image: NetworkImage(imageUrl),
-            fit: BoxFit.contain,
+            fit: BoxFit.cover,
           ),
         ),
       ),

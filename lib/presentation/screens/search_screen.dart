@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_e_book/core/routes/app_routes.dart';
 import 'package:my_e_book/core/routes/screen_arguments.dart';
 import 'package:my_e_book/core/services/service_locator.dart';
-import 'package:my_e_book/core/utils/app_assets.dart';
 import 'package:my_e_book/core/utils/app_strings.dart';
 import 'package:my_e_book/core/utils/values_manager.dart';
 import 'package:my_e_book/data/datasource/local_datasource/book_local_data_source.dart';

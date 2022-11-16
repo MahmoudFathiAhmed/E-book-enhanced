@@ -29,21 +29,23 @@ ThemeData getLightThemeData() => ThemeData(
       ),
       iconTheme: IconThemeData(color: AppColors.myIndigo, size: AppSize.s24.r),
       textTheme: TextTheme(
-        displayLarge: getMediumStyle(
+        displayLarge: getRegularStyle(
             color: AppColors.black,
             fontSize: FontSize.s22,
             letterSpacing: AppSize.s1),
-        displayMedium:
-            getMediumStyle(color: AppColors.black, fontSize: FontSize.s20),
+        displayMedium: getRegularStyle(
+          color: AppColors.black,
+          fontSize: FontSize.s20,
+        ),
         displaySmall:
-            getBoldStyle(color: AppColors.myIndigo, fontSize: FontSize.s18),
+            getRegularStyle(color: AppColors.myIndigo, fontSize: FontSize.s18),
         headlineMedium:
-            getMediumStyle(color: AppColors.myIndigo, fontSize: FontSize.s17),
+            getRegularStyle(color: AppColors.myIndigo, fontSize: FontSize.s17),
         headlineSmall:
-            getMediumStyle(color: AppColors.black, fontSize: FontSize.s16),
+            getRegularStyle(color: AppColors.black, fontSize: FontSize.s16),
         titleLarge:
-            getMediumStyle(color: AppColors.black, fontSize: FontSize.s18),
-        titleMedium: getMediumStyle(
+            getRegularStyle(color: AppColors.black, fontSize: FontSize.s18),
+        titleMedium: getRegularStyle(
             color: AppColors.offWhite,
             fontSize: FontSize.s16), //DEFAULT BUTTON TEXT(DRAWER)
         titleSmall: getRegularStyle(

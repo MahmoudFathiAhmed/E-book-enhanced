@@ -82,23 +82,23 @@ class _MainScreenState extends State<MainScreen> {
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Padding(
-            padding: EdgeInsets.all(AppPadding.p8.r),
+            padding: EdgeInsets.all(AppPadding.p10.r),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 BlocProvider(
-                  create: (context) =>
-                      sl<BooksBloc>()..add(const GetAllBooksEvent()),
+                  create: (context) => sl<BooksBloc>()
+                    ..add(const GetAllBooksEvent(mimeType: 'application/pdf')),
                   child: BlocBuilder<BooksBloc, BooksState>(
                     builder: (context, state) {
                       return SizedBox(
-                        height: AppSize.s178.h,
+                        height: AppSize.s160.h,
                         child: ListView.separated(
                             physics: const BouncingScrollPhysics(),
                             scrollDirection: Axis.horizontal,
                             itemBuilder: ((context, index) {
                               return BooksCoverWidget(
-                                height: AppSize.s178,
+                                height: AppSize.s160,
                                 width: AppSize.s120,
                                 imageUrl:
                                     state.books.books[index].formats.image,
@@ -133,7 +133,7 @@ class _MainScreenState extends State<MainScreen> {
                         separatorBuilder: (context, index) =>
                             SizedBox(height: AppSize.s4.h),
                         itemBuilder: (context, index) => SizedBox(
-                          height: AppSize.s165.h,
+                          height: AppSize.s155.h,
                           child: BookCardWidget(
                             imageUrl: state.books.books[index].formats.image,
                             onTap: () {

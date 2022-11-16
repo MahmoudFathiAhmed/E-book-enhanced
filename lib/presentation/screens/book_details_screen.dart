@@ -107,14 +107,14 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                         await Share.share(
                           state.book.formats.image,
                           subject: state.book.title,
-                          );
+                        );
                       }),
                 )
               ],
             ),
             body: SafeArea(
               child: Padding(
-                padding: EdgeInsets.all(AppPadding.p8.r),
+                padding: EdgeInsets.all(AppPadding.p10.r),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   physics: const BouncingScrollPhysics(),

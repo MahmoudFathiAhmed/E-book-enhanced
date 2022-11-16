@@ -74,7 +74,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(5.0.r),
+          padding: EdgeInsets.all(10.0.r),
           child: BlocProvider(
             create: (context) =>
                 sl<BooksBloc>()..add(GetAllBooksEvent(topic: widget.category)),
@@ -85,29 +85,32 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 itemCount: state.books.books.length,
                 separatorBuilder: (context, index) =>
                     SizedBox(height: AppSize.s6.h),
-                itemBuilder: (context, index) => BookCardWidget(
-                  imageUrl: state.books.books[index].formats.image,
-                  onTap: () {
-                    Navigator.of(context).pushNamed(Routes.bookDetailsRoute,
-                        arguments:
-                            BookDetailsArgs(state.books.books[index].id));
-                  },
-                  bookTitle: state.books.books[index].title,
-                  author: state.books.books[index].authors.isNotEmpty
-                      ? state.books.books[index].authors.first.name!
-                      : AppStrings.noInfo,
-                  downloadCount: state.books.books[index].downloadCount,
-                  favouritesIcon: isFavourites(state.books.books[index].id)
-                      ? Icons.favorite
-                      : Icons.favorite_border,
-                  favouritesOnTap: () {
-                    manageFavourites(
-                        bookId: state.books.books[index].id,
-                        title: state.books.books[index].title,
-                        author: state.books.books[index].authors.first.name!,
-                        downloadCount: state.books.books[index].downloadCount,
-                        imageUrl: state.books.books[index].formats.image);
-                  },
+                itemBuilder: (context, index) => SizedBox(
+                  height: AppSize.s155.h,
+                  child: BookCardWidget(
+                    imageUrl: state.books.books[index].formats.image,
+                    onTap: () {
+                      Navigator.of(context).pushNamed(Routes.bookDetailsRoute,
+                          arguments:
+                              BookDetailsArgs(state.books.books[index].id));
+                    },
+                    bookTitle: state.books.books[index].title,
+                    author: state.books.books[index].authors.isNotEmpty
+                        ? state.books.books[index].authors.first.name!
+                        : AppStrings.noInfo,
+                    downloadCount: state.books.books[index].downloadCount,
+                    favouritesIcon: isFavourites(state.books.books[index].id)
+                        ? Icons.favorite
+                        : Icons.favorite_border,
+                    favouritesOnTap: () {
+                      manageFavourites(
+                          bookId: state.books.books[index].id,
+                          title: state.books.books[index].title,
+                          author: state.books.books[index].authors.first.name!,
+                          downloadCount: state.books.books[index].downloadCount,
+                          imageUrl: state.books.books[index].formats.image);
+                    },
+                  ),
                 ),
               );
             }),

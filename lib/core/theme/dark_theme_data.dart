@@ -31,22 +31,22 @@ ThemeData getDarkThemeData() => ThemeData(
       ),
       iconTheme: IconThemeData(color: AppColors.paleGreen, size: AppSize.s24.r),
       textTheme: TextTheme(
-        displayLarge: getMediumStyle(
+        displayLarge: getRegularStyle(
             color: AppColors.offWhite,
             fontSize: FontSize.s22,
             letterSpacing: AppSize.s1),
         displayMedium:
-            getMediumStyle(color: AppColors.white, fontSize: FontSize.s20),
+            getRegularStyle(color: AppColors.white, fontSize: FontSize.s20),
         displaySmall:
-            getMediumStyle(color: AppColors.paleGreen, fontSize: FontSize.s18),
+            getRegularStyle(color: AppColors.paleGreen, fontSize: FontSize.s18),
         headlineMedium:
-            getMediumStyle(color: AppColors.paleGreen, fontSize: FontSize.s17),
+            getRegularStyle(color: AppColors.paleGreen, fontSize: FontSize.s17),
         headlineSmall:
-            getMediumStyle(color: AppColors.offWhite, fontSize: FontSize.s16),
+            getRegularStyle(color: AppColors.offWhite, fontSize: FontSize.s16),
         titleLarge:
-            getMediumStyle(color: AppColors.offWhite, fontSize: FontSize.s18),
+            getRegularStyle(color: AppColors.offWhite, fontSize: FontSize.s18),
         titleMedium:
-            getMediumStyle(color: AppColors.offWhite, fontSize: FontSize.s16),
+            getRegularStyle(color: AppColors.offWhite, fontSize: FontSize.s16),
         titleSmall: getRegularStyle(
             color: AppColors.paleGreen,
             letterSpacing: 1,
