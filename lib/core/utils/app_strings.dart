@@ -18,6 +18,7 @@ class AppStrings {
   static const String toggleRoute = '/toggleScreen';
   static const String visaCardRoute = '/visaCardScreen';
   static const String refCodeRoute = '/refCodeScreen';
+  static const String themesRoute = '/themesScreen';
 
   //errors
   static const String error = 'error';
@@ -34,6 +35,10 @@ class AppStrings {
 
   //app
   static const String appName = 'My E-Book';
+  static const String themes = 'Themes';
+    static const String darkTheme = 'Dark Theme';
+  static const String lightTheme = 'Light Theme';
+  static const String themeIndex = 'THEME_INDEX';
   static const String moreDetails = 'More details';
   static const String downloadCount = 'Download Count: ';
   static const String price = 'Price:  ';

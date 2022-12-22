@@ -9,6 +9,7 @@ import 'package:my_e_book/domain/usecase/get_final_token_kiosk_usecase.dart';
 import 'package:my_e_book/domain/usecase/get_first_token.dart';
 import 'package:my_e_book/domain/usecase/get_order_id_use_case.dart';
 import 'package:my_e_book/domain/usecase/get_ref_code_usecase.dart';
+import 'package:my_e_book/presentation/controller/Theme/bloc/theme_bloc.dart';
 import 'package:my_e_book/presentation/controller/books/bloc/books_bloc.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:my_e_book/core/network/network_info.dart';
@@ -22,6 +23,7 @@ class ServiceLocator {
           sl(),
           sl(),
         ));
+    sl.registerFactory(() => ThemeBloc());
 
     //USE CASES
     sl.registerLazySingleton(() => GetAllBooksUseCase(sl()));

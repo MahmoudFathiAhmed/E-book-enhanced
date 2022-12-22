@@ -13,6 +13,7 @@ import 'package:my_e_book/presentation/screens/payment/visa_card_screen.dart';
 import 'package:my_e_book/presentation/screens/pdf_screen.dart';
 import 'package:my_e_book/presentation/screens/search_screen.dart';
 import 'package:my_e_book/presentation/screens/splash_screen.dart';
+import 'package:my_e_book/presentation/screens/themes_screen.dart';
 import 'package:my_e_book/presentation/screens/web_view_screen.dart';
 
 class Routes {
@@ -30,6 +31,7 @@ class Routes {
   static const String toggleRoute = AppStrings.toggleRoute;
   static const String visaCardRoute = AppStrings.visaCardRoute;
   static const String refCodeRoute = AppStrings.refCodeRoute;
+  static const String themesRoute = AppStrings.themesRoute;
 }
 
 class AppRoutes {
@@ -41,6 +43,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => const MainScreen());
       case Routes.searchRoute:
         return MaterialPageRoute(builder: (context) => const SearchScreen());
+      case Routes.themesRoute:
+        return MaterialPageRoute(builder: (context) => const ThemesScreen());
       case Routes.favouritesRoute:
         return MaterialPageRoute(
             builder: (context) => const FavouritesScreen());
